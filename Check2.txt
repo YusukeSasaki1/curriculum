@@ -1,0 +1,21 @@
+Vlan10を作成
+(config)#vlan 10
+
+各ポートに下記を設定
+•アクセスポート
+(config-if)#switchport mode access
+
+•Vlan 10を割当て
+(config-if)#switchport access vlan 10
+
+•インターフェイスを有効化
+(config-if)#no shutdown
+
+STPがVlan1に設定されているので各スイッチで下記を設定
+•Vlan1のSTPを無効化
+(config)#no spanning-tree vlan 1
+
+Vlan 10をSTP有効化
+(config)#spanning-tree vlan 10
+
+pingが通ることを確認
